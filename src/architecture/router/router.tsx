@@ -93,6 +93,20 @@ const routes: RouteObject[] = [
         ],
     },
     {
+        path: "demo",
+        element: <SidebarLayout />,
+        children: [
+            {
+                path: "",
+                element: <Navigate to="crypto" replace />,
+            },
+            {
+                path: "demo1",
+                element: <UserSettings />,
+            },
+        ],
+    },
+    {
         path: "dashboards",
         element: <SidebarLayout />,
         children: [
