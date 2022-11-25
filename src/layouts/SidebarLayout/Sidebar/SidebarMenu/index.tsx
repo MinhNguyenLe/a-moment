@@ -236,6 +236,30 @@ function SidebarMenu() {
                     component="div"
                     subheader={
                         <ListSubheader component="div" disableSticky>
+                            Small features
+                        </ListSubheader>
+                    }
+                >
+                    <SubMenuWrapper>
+                        <List component="div">
+                            <ListItem component="div">
+                                <Button
+                                    disableRipple
+                                    component={RouterLink}
+                                    onClick={closeSidebar}
+                                    to="/small-features/speech-recognition"
+                                    startIcon={<BrightnessLowTwoToneIcon />}
+                                >
+                                    Speech Recognition
+                                </Button>
+                            </ListItem>
+                        </List>
+                    </SubMenuWrapper>
+                </List>
+                <List
+                    component="div"
+                    subheader={
+                        <ListSubheader component="div" disableSticky>
                             Dashboards
                         </ListSubheader>
                     }
