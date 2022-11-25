@@ -93,7 +93,7 @@ const routes: RouteObject[] = [
         ],
     },
     {
-        path: "demo",
+        path: "master1",
         element: <SidebarLayout />,
         children: [
             {
@@ -101,7 +101,15 @@ const routes: RouteObject[] = [
                 element: <Navigate to="crypto" replace />,
             },
             {
-                path: "demo1",
+                path: "goal1",
+                element: <UserSettings />,
+            },
+            {
+                path: "goal2",
+                element: <UserSettings />,
+            },
+            {
+                path: "goal3",
                 element: <UserSettings />,
             },
         ],

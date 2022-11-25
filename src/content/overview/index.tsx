@@ -1,9 +1,8 @@
-import { Box, Container, Card } from "@mui/material";
+import { Box, Container, Card, Link } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 
 import { styled } from "@mui/material/styles";
 import Logo from "src/components/LogoSign";
-import Hero from "./Hero";
 
 const OverviewWrapper = styled(Box)(
     () => `
@@ -24,8 +23,10 @@ function Overview() {
                 <Box display="flex" justifyContent="center" py={5} alignItems="center">
                     <Logo />
                 </Box>
-                <Card sx={{ p: 10, mb: 10, borderRadius: 12 }}>
-                    <Hero />
+                <Card sx={{ p: 10, mb: 10, borderRadius: 4 }}>
+                    <Link href="/master1/goal1">Goal 1</Link>
+                    <Link href="/master1/goal2">Goal 2</Link>
+                    <Link href="/master1/goal3">Goal 3</Link>
                 </Card>
             </Container>
         </OverviewWrapper>

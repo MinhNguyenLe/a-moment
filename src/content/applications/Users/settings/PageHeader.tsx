@@ -1,4 +1,7 @@
-import { Typography } from "@mui/material";
+import { Typography, Button, Grid, Box } from "@mui/material";
+
+import AddTwoToneIcon from "@mui/icons-material/AddTwoTone";
+import ExpandMoreTwoToneIcon from "@mui/icons-material/ExpandMoreTwoTone";
 
 function PageHeader() {
     const user = {
@@ -7,14 +10,29 @@ function PageHeader() {
     };
 
     return (
-        <>
-            <Typography variant="h3" component="h3" gutterBottom>
-                User Settings
-            </Typography>
-            <Typography variant="subtitle2">
-                {user.name}, this could be your user settings panel.
-            </Typography>
-        </>
+        <Grid container justifyContent="space-between" alignItems="center">
+            <Grid item>
+                <Typography variant="h3" component="h3" gutterBottom>
+                    Transactions
+                </Typography>
+                <Typography variant="subtitle2">
+                    {user.name}, these are your recent transactions
+                </Typography>
+            </Grid>
+            <Grid item>
+                <Button
+                    sx={{ mt: { xs: 2, md: 0 } }}
+                    variant="contained"
+                ><AddTwoToneIcon fontSize="small" />
+                </Button>
+                <Box display="flex" alignItems="center">
+                    Others
+                    <Box display="flex" alignItems="center" pl={0.3}>
+                        <ExpandMoreTwoToneIcon fontSize="small" />
+                    </Box>
+                </Box>
+            </Grid>
+        </Grid>
     );
 }
 
