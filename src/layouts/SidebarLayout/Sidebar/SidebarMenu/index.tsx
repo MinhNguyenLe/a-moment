@@ -190,7 +190,7 @@ function SidebarMenu() {
                     component="div"
                     subheader={
                         <ListSubheader component="div" disableSticky>
-                            Demo
+                            Need to Master 1
                         </ListSubheader>
                     }
                 >
@@ -201,10 +201,32 @@ function SidebarMenu() {
                                     disableRipple
                                     component={RouterLink}
                                     onClick={closeSidebar}
-                                    to="/demo/demo1"
+                                    to="/master1/goal1"
                                     startIcon={<BrightnessLowTwoToneIcon />}
                                 >
-                                    Demo 1
+                                    Goal 1
+                                </Button>
+                            </ListItem>
+                            <ListItem component="div">
+                                <Button
+                                    disableRipple
+                                    component={RouterLink}
+                                    onClick={closeSidebar}
+                                    to="/master1/goal2"
+                                    startIcon={<BrightnessLowTwoToneIcon />}
+                                >
+                                    Goal 2
+                                </Button>
+                            </ListItem>
+                            <ListItem component="div">
+                                <Button
+                                    disableRipple
+                                    component={RouterLink}
+                                    onClick={closeSidebar}
+                                    to="/master1/goal3"
+                                    startIcon={<BrightnessLowTwoToneIcon />}
+                                >
+                                    Goal 3
                                 </Button>
                             </ListItem>
                         </List>

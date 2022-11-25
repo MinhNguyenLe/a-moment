@@ -84,7 +84,7 @@ function HeaderMenu() {
                         component={NavLink}
                         to="/components/buttons"
                     >
-                        <ListItemText primaryTypographyProps={{ noWrap: true }} primary="Buttons" />
+                        <ListItemText primaryTypographyProps={{ noWrap: true }} primary="Create new workspace" />
                     </ListItem>
                     <ListItem
                         classes={{ root: "MuiListItem-indicators" }}
