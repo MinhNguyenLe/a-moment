@@ -29,6 +29,9 @@ const Transactions = Loader(lazy(() => import("src/content/applications/Transact
 const UserProfile = Loader(lazy(() => import("src/content/applications/Users/profile")));
 const UserSettings = Loader(lazy(() => import("src/content/applications/Users/settings")));
 
+const DemoSpeechRecognition = Loader(
+    lazy(() => import("src/small-features/convert-speech-into-text/Demo"))
+);
 // Components
 
 const Buttons = Loader(lazy(() => import("src/content/pages/Components/Buttons")));
@@ -89,6 +92,20 @@ const routes: RouteObject[] = [
             {
                 path: "*",
                 element: <Status404 />,
+            },
+        ],
+    },
+    {
+        path: "small-features",
+        element: <SidebarLayout />,
+        children: [
+            {
+                path: "",
+                element: <Navigate to="crypto" replace />,
+            },
+            {
+                path: "speech-recognition",
+                element: <DemoSpeechRecognition />,
             },
         ],
     },
