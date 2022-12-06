@@ -7,19 +7,20 @@ interface UseSpeechRecognitionReturn {
     onStartMic: () => void;
     onStopMic: () => void;
     getContent: () => string;
-    isStarting: boolean;
 }
 
 const useSpeechRecognition = (config?: PropertySpeechRecognition): UseSpeechRecognitionReturn => {
-    const [isStarting, setIsStarting] = useState<boolean>(false);
     const [content, setContent] = useState<string>("");
+    const [mic] = useState(configSpeechRecognition(config))
 
-    const mic = configSpeechRecognition(config)
-console.log(mic)
     const onStartSR = () => {
-        mic.onstart(() => {
-            console.log("It is starting ...");
-        });
+        mic.start();
+
+        mic.onerror = (event) => {
+            console.warn(`Have some errors: ${event.error}`)
+        }
+
+        mic.onend = () => { console.log("continue") }
     };
 
     const onStopSR = () => {
@@ -29,15 +30,21 @@ console.log(mic)
     };
 
     const onEnd = () => {
-        mic.onend(() => {
+        mic.onend = () => {
             console.log("It stopped");
-        });
+        };
     };
 
     const onResultSR = () => {
-        mic.onresult((event) => {
-            console.log("Test result:--------", event);
-        });
+        mic.onresult = (event) => {
+            const content =
+                Array.from(event.results)
+                    .map(result => result[0])
+                    .map(result => result.transcript)
+                    .join("");
+
+            setContent(content);
+        };
     };
 
     const getContent = () => {
@@ -45,19 +52,19 @@ console.log(mic)
     };
 
     const onStartMic = () => {
-        setIsStarting(true);
+        mic.onstart = () => {
+            console.log("starting!!!")
+        }
 
         onStartSR();
         onResultSR();
     };
 
     const onStopMic = () => {
-        setIsStarting(false);
-
         onStopSR();
     };
 
-    return { onStartMic, getContent, onStopMic, isStarting };
+    return { onStartMic, getContent, onStopMic };
 };
 
 export default useSpeechRecognition;

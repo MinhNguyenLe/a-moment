@@ -14,7 +14,7 @@ export interface PropertySpeechRecognition {
 
 export const configSpeechRecognition = (
     { continuous, lang, interimResults, maxAlertnatives }: PropertySpeechRecognition = {
-        continuous: false,
+        continuous: true,
         lang: "en-US",
         interimResults: false,
         maxAlertnatives: 1,
